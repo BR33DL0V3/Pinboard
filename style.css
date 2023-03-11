@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #f4b0b0;
+  font-family: "Helvetica neue", Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+  font-family: "Bungee Shade", cursive;
+  color: purple;
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .title {
+    display: block;
+  }
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  position: relative;
+  cursor: pointer;
+  max-width: 40rem;
+}
+
+.label {
+  position: absolute;
+  font-size: 0.75rem;
+  left: 1rem;
+  top: 1rem;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.input {
+  border-radius: 6px;
+  font-weight: bold;
+  padding: 2rem 0.75rem 0.75rem;
+  width: 100%;
+  font-size: 1.5rem;
+  box-shadow: 0 0 5px #fc47bb;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.button {
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+  cursor: pointer;
+  margin: 0.5rem 0;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  background: #ccc;
+}
+
+.list {
+  margin: -1rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1rem 4rem;
+}
+
+.pin {
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .pin {
+    width: 50%;
+  }
+}
+
+@media (min-width: 65rem) {
+  .pin {
+    width: 33.333333333333%;
+  }
+}
+
+@media (min-width: 100rem) {
+  .pin {
+    width: 25%;
+  }
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transform: translateY(1rem);
+}
+
+.pin:hover .info {
+  opacity: 1;
+  transform: translateY(-1rem);
+}
+
+.remove {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(-1rem);
+}
+
+.pin:hover .remove {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.remove:hover {
+  background: #ccc;
+}
+
+.image {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  background-color: #d18c8c;
+}
+
+.tag {
+  margin: 0.5rem;
+  border-radius: 15px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.tag:hover {
+  background: #ccc;
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.form {
+  background: white;
+  width: 100%;
+  max-width: 40rem;
+  border-radius: 16px;
+}
+
+.dialog-list {
+  list-style: none;
+  padding: 1rem;
+}
+
+.dialog-item {
+  padding: 1rem;
+  text-align: center;
+}
+
+.helper {
+  display: block;
+  padding: 0.75rem 0;
+  opacity: 0.6;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  animation: spin 0.6s linear 0s infinite;
+  display: block;
+  border: 8px solid #80008030;
+  border-top: 8px solid purple;
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  margin: 6rem auto;
+}

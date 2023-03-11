@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Moodboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="app">
+   <datalist id="existing-tags"></datalist>
+
+    <header>
+      <h1 class="title">My Moodboard</h1>
+
+      <div class="controls">
+        <label class="field" for="filter-input">
+          <span class="label">Filter</span>
+          <input
+            type="search"
+            id="filter-input"
+            class="input"
+            list="existing-tags"
+            placeholder="None"
+          />
+        </label>
+
+        <button class="button" id="dialog-start">Add New Image</button>
+      </div>
+    </header>
+
+   <main>
+  <div class="list" id="pins-list">
+    <span class="loader"></span>
+  </div>
+</main>
+
+    <dialog id="dialog" class="overlay hidden">
+      <form id="dialog-form" class="form">
+        <div class="dialog-item">
+          <label class="field" for="dialog-image">
+            <span class="label">Image URL</span>
+            <input class="input" type="url" id="dialog-image" />
+          </label>
+
+          <em class="helper"
+            >For example:
+            https://images.unsplash.com/photo-1584464491033-06628f3a6b7b</em
+          >
+        </div>
+
+        <div class="dialog-item">
+          <label class="field" for="dialog-tags">
+            <span class="label">Tags</span>
+            <input class="input" type="text" id="dialog-tags" />
+          </label>
+
+          <em class="helper"
+            >Separate multiple tags with commas. For example: engineering,
+            coding</em
+          >
+        </div>
+
+        <div class="dialog-item">
+          <button type="submit" class="button" id="dialog-submit" disabled>
+            Save Image
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
